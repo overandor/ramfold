@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "description": "RAMFold receipt schema for machine-labor verification",
+  "fields": {
+    "schema_version": {"type": "string", "required": true},
+    "timestamp": {"type": "float", "required": true},
+    "event": {"type": "string", "required": true, "values": ["step", "trial_start", "trial_end", "benchmark"]},
+    "run_id": {"type": "string", "required": true},
+    "tier": {"type": "string", "required": true, "values": ["tiny", "medium", "large", "stress"]},
+    "mode": {"type": "string", "required": true, "values": ["baseline", "v0", "v1", "v2", "adaptive"]},
+    "step": {"type": "int", "required": false},
+    "loss": {"type": "float", "required": false},
+    "tokens_per_sec": {"type": "float", "required": false},
+    "pressure": {"type": "float", "required": false, "range": [0, 1]},
+    "swap_used_gb": {"type": "float", "required": false},
+    "swap_delta": {"type": "float", "required": false},
+    "pressure_delta": {"type": "float", "required": false},
+    "policy": {"type": "object", "required": false},
+    "memory_snapshot": {"type": "object", "required": false},
+    "quality_score": {"type": "float", "required": false, "range": [0, 1]},
+    "verification_score": {"type": "float", "required": false, "range": [0, 1]},
+    "qpg": {"type": "float", "required": false},
+    "action": {"type": "string", "required": false},
+    "crashed": {"type": "bool", "required": false},
+    "notes": {"type": "string", "required": false}
+  }
+}
